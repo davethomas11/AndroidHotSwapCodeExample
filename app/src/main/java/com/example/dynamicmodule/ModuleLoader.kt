@@ -5,10 +5,10 @@ import java.io.File
 
 class ModuleLoader {
     
-    fun load(dex: File): IDynamicModule {
+    fun load(dex: File, cls: String = "com.example.dynamicmodule.DynamicModule"): IDynamicModule {
         val classLoader = DexClassLoader(dex.absolutePath, null,
                 null, this.javaClass.classLoader)
-        val moduleClass = classLoader.loadClass("com.example.dynamicmodule.DynamicModule")
+        val moduleClass = classLoader.loadClass(cls)
 
         if (IDynamicModule::class.java.isAssignableFrom(moduleClass)) {
             return moduleClass.newInstance() as IDynamicModule
