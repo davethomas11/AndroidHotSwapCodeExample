@@ -5,8 +5,8 @@ import java.io.File
 
 class ModuleLoader {
     
-    fun load(aar: File): IDynamicModule {
-        val classLoader = DexClassLoader(aar.absolutePath, null,
+    fun load(dex: File): IDynamicModule {
+        val classLoader = DexClassLoader(dex.absolutePath, null,
                 null, this.javaClass.classLoader)
         val moduleClass = classLoader.loadClass("com.example.dynamicmodule.DynamicModule")
 
