@@ -31,7 +31,7 @@ class ExtractDexTask extends DefaultTask {
 
     def dexClassFile() {
         ExecAction execAction = getExecActionFactory().newExecAction()
-        execAction.setExecutable("${androidSDKLocation}/build-tools/${buildToolsVersion}/dx.bat")
+        execAction.setExecutable("${androidSDKLocation}/build-tools/${buildToolsVersion}/dx")
         execAction.setArgs(["--dex", "--output",
                 "${destinationFolder}/${dexName}.dex",
                 "${srcFolder}/${srcName}/classes.jar"])
