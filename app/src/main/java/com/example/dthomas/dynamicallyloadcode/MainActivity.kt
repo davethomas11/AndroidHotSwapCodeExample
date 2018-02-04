@@ -23,5 +23,5 @@ class MainActivity : AppCompatActivity() {
     fun copyDexFile(name: String) = FileUtils.copyToFile(assets.open(name), File(sourceFile(name)))
             .let { File(sourceFile(name)) }
 
-    fun loadDexFile(name: String) = ModuleLoader().load(copyDexFile(name))
+    fun loadDexFile(name: String) = ModuleLoader(cacheDir.absolutePath).load(copyDexFile(name))
 }
